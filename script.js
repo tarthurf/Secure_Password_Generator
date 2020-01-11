@@ -18,7 +18,7 @@ let symbol = [" ", ",", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "
 
 let password = [];
 
-let chance = 0
+let chance = 0;
 
 // Checkbox objects
 let alpha = document.getElementById("letterCheck");
@@ -38,10 +38,14 @@ if (test === 1) {
     }
 }
 
-function randNum() {
+function addNum() {
     let z = Math.floor(Math.random()* 10);
     password.push(z)
-}t 
+}
+
+function randNum() {
+    let chance = Math.random();
+}
 
 // This function will loop through an array, get a random index
 function valSelect(array) {
@@ -50,29 +54,20 @@ function valSelect(array) {
 }            
 
 if (test === 1) {
-    for (let i = 0; i < symbol.length; i++) {
-        password.push(symbol[i]);
-        console.log(password);
-    }
-}
-
-// let chance = Math.random();
-
-if (test === 1) {
     function generate() {
     for (let i = 0; i < output.length; i++) {
-        if (chance < .25) {
+        if (chance < .33) {
             if (letterCheck === true) {
-                password.pop()
+                valSelect(letter);
+
             }
-        } else if (chance > .25 && chance < .50) {
+        } else if (chance > .33 && chance < .66) 
+
+        {
             
-        } else if (chance > .50 && chance < .75) {
+        } else if (chance > .66 && chance < .99) {
             
-        } else if (chance > .75 && chance < .99) {
-            
-        }        
-    
+        }   
 
     }
 }
