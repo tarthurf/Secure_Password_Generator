@@ -38,6 +38,11 @@ if (test === 1) {
     }
 }
 
+function randNum() {
+    let z = Math.floor(Math.random()* 10);
+    password.push(z)
+}t 
+
 // This function will loop through an array, get a random index
 function valSelect(array) {
     password.push(array[(Math.floor((Math.random()* array.length)+ 1))]);
