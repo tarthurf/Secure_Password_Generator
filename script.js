@@ -27,7 +27,7 @@ let numb = document.getElementById("numberCheck");
 let symbols = document.getElementById("symbolCheck");
 
 // create generate button dom element
-if (test === 2) {
+if (test === 1) {
     function noCap() {
         if (alpha.checked === false && caps.checked === true) {
             console.log(`caps = ${caps.checked} \nalpha = ${alpha.checked}`);
@@ -38,16 +38,23 @@ if (test === 2) {
     }
 }
 
-// This function will generate a random number
+// This function will loop through an array, get a random index
 function valSelect(array) {
-    for (let i = 0; i < array.length; i++) {
-        
-    }
+    password.push(array[(Math.floor((Math.random()* array.length)+ 1))]);
+    console.log(password);
 }            
 
-let chance = Math.random();
+if (test === 1) {
+    for (let i = 0; i < symbol.length; i++) {
+        password.push(symbol[i]);
+        console.log(password);
+    }
+}
 
-function generate() {
+// let chance = Math.random();
+
+if (test === 1) {
+    function generate() {
     for (let i = 0; i < output.length; i++) {
         if (chance < .25) {
             if (letterCheck === true) {
@@ -65,6 +72,8 @@ function generate() {
     }
 }
 
+}
+
 
 
 // check range and which parameters are enabled
@@ -74,16 +83,3 @@ function arrayLoop(arrayName) {
         console.log(y[i]);
     }
 }
-
-function generate() {
-    for (let i = 0; i < output.length; i++) {
-        
-    }
-    
-}
-
-arrayLoop(letter)
-arrayLoop(symbol)
-// Generate numbers function
-
-// generate password
