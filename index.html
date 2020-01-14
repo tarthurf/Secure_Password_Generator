@@ -41,25 +41,25 @@
                 <input type="range" class="custom-range" min="8" max="128" step="1" id="charRange">
                 <p>Characters: <span class="border rounded" id="sliderValue"></span></p>
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="letterCheck">
+                    <input type="checkbox" class="custom-control-input" id="letterCheck" value="false">
                     <label class="custom-control-label" for="letterCheck">
                         Random Letters
                     </label>
                 </div>
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="capsCheck">
+                    <input type="checkbox" class="custom-control-input" id="capsCheck" value="false">
                     <label class="custom-control-label" for="capsCheck">
                         Random Capitalization
                     </label>
                 </div>
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="numberCheck">
+                    <input type="checkbox" class="custom-control-input" id="numberCheck"  value="false">
                     <label class="custom-control-label" for="numberCheck">
                         Random Numbers
                     </label>
                 </div>
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="symbolCheck">
+                    <input type="checkbox" class="custom-control-input" id="symbolCheck"  value="false">
                     <label class="custom-control-label" for="symbolCheck">
                         Random Symbols
                     </label>
@@ -78,7 +78,7 @@
 
             <div class="row">
                 <div class="col-md-6 d-flex justify-content-around">
-                    <button class="btn btn-warning" onclick="noCap(); generate()" id="generate">Generate!</button>
+                    <button class="btn btn-warning" onclick="noCap()" id="generate">Generate!</button>
                 </div>
                 <div class="col-md-6 d-flex justify-content-around">
                     <button class="btn btn-secondary" id="copy">Copy to Clipboard</button>

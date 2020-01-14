@@ -16,70 +16,86 @@ let letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "
 
 let symbol = [" ", ",", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "^", "`", "{", "|", "}", "~", "[", "]"];
 
+// empty array for password
 let password = [];
 
+// an object to be filled with a random number
 let chance = 0;
+console.log(`Chance Current: ${chance}`)
 
 // Checkbox objects
-let alpha = document.getElementById("letterCheck");
-let caps = document.getElementById("capsCheck");
-let numb = document.getElementById("numberCheck");
-let symbols = document.getElementById("symbolCheck");
+let alpha = document.getElementById("letterCheck").value; 
+let caps = document.getElementById("capsCheck").value;
+let numb = document.getElementById("numberCheck").value;
+let symbols = document.getElementById("symbolCheck").value;
+caps = true;
+alpha = true;
+numb = true;
+symbols = true;
 
 // create generate button dom element
-if (test === 1) {
+// if (test === 2) {
     function noCap() {
         if (alpha.checked === false && caps.checked === true) {
-            console.log(`caps = ${caps.checked} \nalpha = ${alpha.checked}`);
             alert("You cannot capitalize letters that don't exist!");
-        } else {
-            generate()
+        }   else {
+                generate()
         }
     }
-}
+// }
 
-function addNum() {
-    let z = Math.floor(Math.random()* 10);
-    password.push(z)
-}
+// this function adds a random number to the password array
+// if (test === 2 ) {
+    function addNum() {
+        let z = Math.floor(Math.random()* 10);
+        password.push(z)
+    }
+    addNum();
+    console.log(`Number added to password:  ${password}`);  
+// }
 
-function randNum() {
-    let chance = Math.random();
-}
+// this function generates a random number between 0.01-0.99
+// if (test === 2) {
+    function randNum() {
+        chance = Math.random();
+    }
+    randNum();
+    console.log(`Chance Current: ${chance}`);
+// }
 
 // This function will loop through an array, get a random index
 function valSelect(array) {
     password.push(array[(Math.floor((Math.random()* array.length)+ 1))]);
-    console.log(password);
-}            
+}
+valSelect(symbol);
+console.log(`symbol added to password: ${password}`);
 
-if (test === 1) {
+
+// This function generates a password
+// if (test === 2) {
     function generate() {
-    for (let i = 0; i < output.length; i++) {
-        if (chance < .33) {
-            if (letterCheck === true) {
-                valSelect(letter);
-
+        console.log(`Letters: ${alpha} \ncaps: ${caps} \nnumbers: ${numb} \nsymbols: ${symbols}`)
+        console.log("start")
+        for (let i = 0; i < output.length; i++) {
+            randNum();
+            console.log(`Function chance: ${chance}`)
+            if (chance < .33) {
+                if (caps === true) {
+                    randNum();
+                    if (chance < .50) {
+                        let lowerAlpha = letter[(Math.floor((Math.random()* letter.length)+ 1))];
+                        let lowAlpha = capAlpha.toUpperCase();
+                    }   else {
+                            if (alpha === true) {
+                                valSelect(letter);
+                            }
+                        }   
+                    }
+                }   
+                else if (chance > .33 && chance < .66) {
+                    valSelect(symbol)
+                }   else { addNum();
             }
-        } else if (chance > .33 && chance < .66) 
-
-        {
-            
-        } else if (chance > .66 && chance < .99) {
-            
-        }   
-
+        }
     }
-}
-
-}
-
-
-
-// check range and which parameters are enabled
-function arrayLoop(arrayName) {
-    let y = arrayName;
-    for (let i = 0; i < y.length; i++) {
-        console.log(y[i]);
-    }
-}
+// }
