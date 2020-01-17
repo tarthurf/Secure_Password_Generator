@@ -1,85 +1,71 @@
-// testing condition
-const test = 2;
+// This function copies the contents of an element onto the clipboard
+function copyToClipboard(id) {
+    document.getElementById(id).select();
+    document.execCommand("copy");
+    document.getSelection().removeAllRanges();
+}
+
+// This function generates a random number starting at 0 up to the length of the max
+function randomUpToMax(max) {
+    return Math.floor(Math.random() * max);
+}
 
 // Slider functionality
-let slider = document.getElementById("charRange");
-let output = document.getElementById("sliderValue");
-output.innerHTML = slider.value;
+const slider = document.getElementById("charRange");
+const sliderOutput = document.getElementById("sliderValue");
+sliderOutput.innerHTML = slider.value;
 
 // Slider output on html
 slider.oninput = function() {
-  output.innerHTML = this.value;
+  sliderOutput.innerHTML = this.value;
 }
 
-// Arrays for letters and symbols
-let letter = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+// Arrays for letters, uppercase, symbols and numbers
+const lettersArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+const capsArray = lettersArray.map(e => e.toUpperCase());
+const symbolsArray = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "^", "`", "{", "|", "}", "~", "[", "]"];
+const numbersArray = [0,1,2,3,4,5,6,7,8,9];
 
-let symbol = [" ", ",", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "^", "`", "{", "|", "}", "~", "[", "]"];
-
+// empty array for password
 let password = [];
 
-let chance = 0;
+const copyButton = document.getElementById("copy");
+const passwordBox = document.getElementById("passwordBox");
+const lettersCheckEl = document.getElementById("letterCheck"); 
+const capsCheckEl = document.getElementById("capsCheck");
+const numberCheckEl = document.getElementById("numberCheck");
+const symbolsCheckEl = document.getElementById("symbolCheck");
+lettersCheckEl.checked = true;
+capsCheckEl.checked = true;
+numberCheckEl.checked = true;
+symbolsCheckEl.checked = true;
 
-// Checkbox objects
-let alpha = document.getElementById("letterCheck");
-let caps = document.getElementById("capsCheck");
-let numb = document.getElementById("numberCheck");
-let symbols = document.getElementById("symbolCheck");
-
-// create generate button dom element
-if (test === 1) {
-    function noCap() {
-        if (alpha.checked === false && caps.checked === true) {
-            console.log(`caps = ${caps.checked} \nalpha = ${alpha.checked}`);
-            alert("You cannot capitalize letters that don't exist!");
-        } else {
-            generate()
+function generate() {
+    password = [];
+    const passwordLength = parseInt(sliderOutput.textContent)
+    const alphaIsChecked = lettersCheckEl.checked;
+    const capsIsChecked = capsCheckEl.checked;
+    const numbIsChecked = numberCheckEl.checked;
+    const symbolsIsChecked = symbolsCheckEl.checked;
+    const possibleCharacters = [];
+    if (alphaIsChecked) possibleCharacters.push(lettersArray);
+    if (capsIsChecked) possibleCharacters.push(capsArray);
+    if (numbIsChecked) possibleCharacters.push(numbersArray);
+    if (symbolsIsChecked) possibleCharacters.push(symbolsArray);
+    if (possibleCharacters.length) {
+        let randI = 0
+        for (let i = 0; i < passwordLength; i++) {
+            randI = randomUpToMax(possibleCharacters.length);
+            console.log(`random raay index: ${randI}`);
+            const randArray = possibleCharacters[randI];
+            const randChar = randArray[randomUpToMax(randArray.length)];
+            password.push(randChar);
         }
+    }   else {
+        alert("Please select something.");
     }
-}
-
-function addNum() {
-    let z = Math.floor(Math.random()* 10);
-    password.push(z)
-}
-
-function randNum() {
-    let chance = Math.random();
-}
-
-// This function will loop through an array, get a random index
-function valSelect(array) {
-    password.push(array[(Math.floor((Math.random()* array.length)+ 1))]);
     console.log(password);
-}            
-
-if (test === 1) {
-    function generate() {
-    for (let i = 0; i < output.length; i++) {
-        if (chance < .33) {
-            if (letterCheck === true) {
-                valSelect(letter);
-
-            }
-        } else if (chance > .33 && chance < .66) 
-
-        {
-            
-        } else if (chance > .66 && chance < .99) {
-            
-        }   
-
-    }
-}
-
-}
-
-
-
-// check range and which parameters are enabled
-function arrayLoop(arrayName) {
-    let y = arrayName;
-    for (let i = 0; i < y.length; i++) {
-        console.log(y[i]);
-    }
+    let stringPassword = password.join("");
+    console.log(stringPassword);
+    passwordBox.innerHTML = stringPassword;
 }
