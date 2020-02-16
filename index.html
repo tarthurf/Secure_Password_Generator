@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <!-- <div class="container">
         <div class="row">
             <div class="col-xl-12">
                 <header>
@@ -24,14 +24,14 @@
                 </header>
             </div>
         </div>
-    </div>
+    </div> -->
     
     <div class="container border rounded">
         <div class="row">
             <div class="col-lg-12">
-                <h2>
-                    <span class="badge">Generate a Password</span>
-                </h2>
+                <h1>
+                    <span style="padding: inherit;" class="badge">Generate a Password</span>
+                </h1>
             </div>
         </div>
 
@@ -43,13 +43,13 @@
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="letterCheck">
                     <label class="custom-control-label" for="letterCheck">
-                        Random Letters
+                        Random Lowercase Letters
                     </label>
                 </div>
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="capsCheck">
                     <label class="custom-control-label" for="capsCheck">
-                        Random Capitalization
+                        Random Letter Capitalization
                     </label>
                 </div>
                 <div class="custom-control custom-checkbox">
@@ -78,10 +78,10 @@
 
             <div class="row">
                 <div class="col-md-6 d-flex justify-content-around">
-                    <button class="btn btn-warning" onclick="generate()" id="generate">Generate!</button>
+                    <button style="margin-bottom: 15px;" class="btn btn-warning" onclick="generate()" id="generate">Generate!</button>
                 </div>
                 <div class="col-md-6 d-flex justify-content-around">
-                    <button class="btn btn-secondary" onclick="copyToClipboard('passwordBox')" id="copy">Copy to Clipboard</button>
+                    <button style="margin-bottom: 15px;" class="btn btn-secondary" onclick="copyToClipboard('passwordBox')" id="copy">Copy to Clipboard</button>
                 </div>
             </div>
         </div>
