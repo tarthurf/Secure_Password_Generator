@@ -1,6 +1,6 @@
 # Secure_Password_Generator
 
-![alt text](https://github.com/tarthurf/Secure_Password_Generator/blob/master/tarthurf.github.io_Secure_Password_Generator_.png?raw=true)
+![alt text](tarthurf.github.io_Secure_Password_Generator_.png)
 ## WHO MADE THIS?
 
 I did, with a little help from the internet. Thanks, internet.
@@ -15,4 +15,4 @@ This was a homework assignment for a full-stack web developement boot camp. It w
 
 ## FUTURE DEVELOPMENT
 
-I may come back to this project at a later time and create a radio toggle that will allow the user to input what symbols they want to be used in the password. Right now the list of symbols used is quite long and has some charcters included that likely will not work with some password inputs on different sites. A highly functional and easy to use program would fully complete this project.
+I will add radio buttons to replace the checkboxes for easier understanding of the custom characters checkbox. I would also like to add a store to allow users to save passwords locally on their browser and associate a URL and username with them. This would be more secure than keeping passwords on a server that is vulnerable to cyber attacks.
